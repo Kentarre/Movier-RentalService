@@ -1,0 +1,13 @@
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/bin/Debug/netcoreapp2.1/InventoryService.deps.json
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/bin/Debug/netcoreapp2.1/InventoryService.runtimeconfig.json
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/bin/Debug/netcoreapp2.1/InventoryService.runtimeconfig.dev.json
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/bin/Debug/netcoreapp2.1/InventoryService.dll
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/bin/Debug/netcoreapp2.1/InventoryService.pdb
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/bin/Debug/netcoreapp2.1/Common.dll
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/bin/Debug/netcoreapp2.1/Common.pdb
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/obj/Debug/netcoreapp2.1/InventoryService.csprojResolveAssemblyReference.cache
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/obj/Debug/netcoreapp2.1/InventoryService.csproj.CoreCompileInputs.cache
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/obj/Debug/netcoreapp2.1/InventoryService.AssemblyInfoInputs.cache
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/obj/Debug/netcoreapp2.1/InventoryService.AssemblyInfo.cs
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/obj/Debug/netcoreapp2.1/InventoryService.dll
+/Users/Kentarre/dev/Movier/Services/InventoryService/InventoryService/obj/Debug/netcoreapp2.1/InventoryService.pdb

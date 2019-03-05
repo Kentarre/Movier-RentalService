@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataTypes\" />
+    <Folder Include="DataTypes\Services\" />
+    <Folder Include="DataTypes\Services\RentalService\" />
+    <Folder Include="DataTypes\Services\FileService\" />
+    <Folder Include="DataTypes\Dto\" />
+    <Folder Include="DataTypes\Enums\" />
+    <Folder Include="Redis\" />
+    <Folder Include="DataTypes\Services\CalculationService\" />
+    <Folder Include="DataTypes\Services\InventoryService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ServiceStack.Redis" Version="5.4.0" />
+    <PackageReference Include="ServiceStack.Redis.Core" Version="5.4.0" />
+  </ItemGroup>
+</Project>

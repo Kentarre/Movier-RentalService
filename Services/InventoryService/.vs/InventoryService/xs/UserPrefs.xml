@@ -1,0 +1,54 @@
+﻿<Properties StartupConfiguration="{52F88D48-E510-4C22-A9B3-8CF0AAC3A413}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../Main/Main/Controllers/RentalController.cs">
+    <Files>
+      <File FileName="../RentalService/RentalService/Handlers/StopRentalCommandHandler.cs" Line="19" Column="13" />
+      <File FileName="../../Main/Main/Controllers/RentalController.cs" Line="17" Column="6" />
+      <File FileName="../CalculationService/CalculationService/Handlers/CalculatePriceCommandHandler.cs" Line="19" Column="30" />
+      <File FileName="../CalculationService/CalculationService/Handlers/BaseMessageHandler.cs" Line="33" Column="1" />
+      <File FileName="../RentalService/RentalService/Handlers/StartRentalCommandHandler.cs" Line="26" Column="13" />
+      <File FileName="../RentalService/RentalService/Handlers/BaseMessageHandler.cs" Line="20" Column="62" />
+      <File FileName="InventoryService/Handlers/BaseMessageHandler.cs" Line="10" Column="15" />
+      <File FileName="../../Main/Main/Dto/NewOrderDto.cs" Line="13" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CalculationService" expanded="True">
+            <Node name="CalculationService" expanded="True">
+              <Node name="Handlers" expanded="True" />
+            </Node>
+          </Node>
+          <Node />
+          <Node name="InventoryService" expanded="True">
+            <Node name="InventoryService" expanded="True">
+              <Node name="Handlers" expanded="True" />
+            </Node>
+          </Node>
+          <Node name="Main" expanded="True">
+            <Node name="Main" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="RentalController.cs" selected="True" />
+              </Node>
+              <Node name="Dto" expanded="True" />
+            </Node>
+          </Node>
+          <Node name="RentalService" expanded="True">
+            <Node name="RentalService" expanded="True">
+              <Node name="Handlers" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.InventoryService PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

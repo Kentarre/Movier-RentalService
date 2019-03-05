@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ServiceStack" Version="5.4.0" />
+    <PackageReference Include="ServiceStack.Server" Version="5.4.0" />
+    <PackageReference Include="ServiceStack.Server.Core" Version="5.4.0" />
+    <PackageReference Include="ServiceStack.Kestrel" Version="5.4.0" />
+    <PackageReference Include="ServiceStack.Redis" Version="5.4.0" />
+    <PackageReference Include="ServiceStack.Redis.Core" Version="5.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Common">
+      <HintPath>..\..\..\Common\Common\Common\bin\Debug\netcoreapp2.1\Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Redis\RedisProxy.cs" />
+    <Compile Remove="Helpers\PriceHelper.cs" />
+  </ItemGroup>
+</Project>
