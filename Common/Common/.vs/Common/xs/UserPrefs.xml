@@ -1,42 +1,31 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../Main/Main/Controllers/RentalController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../Main/Main/Controllers/HomeController.cs">
     <Files>
       <File FileName="../../Services/RentalService/RentalService/Handlers/StopRentalCommandHandler.cs" Line="19" Column="13" />
-      <File FileName="../../Main/Main/Controllers/RentalController.cs" Line="17" Column="6" />
+      <File FileName="../../Main/Main/Controllers/RentalController.cs" Line="18" Column="9" />
       <File FileName="../../Services/CalculationService/CalculationService/Handlers/CalculatePriceCommandHandler.cs" Line="19" Column="30" />
-      <File FileName="../../Services/CalculationService/CalculationService/Handlers/BaseMessageHandler.cs" Line="33" Column="1" />
-      <File FileName="../../Services/RentalService/RentalService/Handlers/StartRentalCommandHandler.cs" Line="26" Column="13" />
       <File FileName="../../Services/RentalService/RentalService/Handlers/BaseMessageHandler.cs" Line="20" Column="62" />
-      <File FileName="../../Services/InventoryService/InventoryService/Handlers/BaseMessageHandler.cs" Line="10" Column="15" />
-      <File FileName="../../Main/Main/Dto/NewOrderDto.cs" Line="13" Column="1" />
+      <File FileName="../../Main/Main/Controllers/InventoryController.cs" Line="21" Column="28" />
+      <File FileName="../../Main/Main/Controllers/FileController.cs" Line="10" Column="29" />
+      <File FileName="../../Main/Main/Controllers/HomeController.cs" Line="17" Column="39" />
+      <File FileName="../../Main/Main/Helpers/DbMethods.cs" Line="24" Column="6" />
+      <File FileName="../../Main/Main/Controllers/ValuesController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CalculationService" expanded="True">
-            <Node name="CalculationService" expanded="True">
-              <Node name="Handlers" expanded="True" />
-            </Node>
-          </Node>
           <Node />
-          <Node name="InventoryService" expanded="True">
-            <Node name="InventoryService" expanded="True">
-              <Node name="Handlers" expanded="True" />
-            </Node>
-          </Node>
+          <Node />
+          <Node />
           <Node name="Main" expanded="True">
             <Node name="Main" expanded="True">
               <Node name="Controllers" expanded="True">
-                <Node name="RentalController.cs" selected="True" />
+                <Node name="HomeController.cs" selected="True" />
               </Node>
-              <Node name="Dto" expanded="True" />
+              <Node name="Helpers" expanded="True" />
             </Node>
           </Node>
-          <Node name="RentalService" expanded="True">
-            <Node name="RentalService" expanded="True">
-              <Node name="Handlers" expanded="True" />
-            </Node>
-          </Node>
+          <Node />
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
@@ -46,7 +35,9 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/Kentarre/dev/Movier/Main/Main/Controllers/HomeController.cs" line="26" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

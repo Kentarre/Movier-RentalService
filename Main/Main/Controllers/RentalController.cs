@@ -39,16 +39,6 @@ namespace Main.Controllers
         [HttpPost("stop")]
         public ActionResult StopRental()
         {
-            MessageAdapter.SendMessage(new StartRentalCommand
-            {
-                FilmId = new Guid("f790aa11-5032-44a2-8868-aab9a84ab97c"),
-                OrderId = DbMethods.GetNextOrderId(),
-                UserId = new Guid(),
-                UseBonuses = true,
-                ActiveTo = DateTime.Now.AddDays(7),
-                ActiveFrom = DateTime.Now
-            });
-
             return Ok(new { status = "success" });
         }
     }

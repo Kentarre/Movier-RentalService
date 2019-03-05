@@ -32,7 +32,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Controllers\HomeController.cs" />
     <Compile Remove="Dto\RentModel.cs" />
     <Compile Remove="Dto\StopRentalDto.cs" />
   </ItemGroup>
