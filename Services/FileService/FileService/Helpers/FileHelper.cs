@@ -29,6 +29,12 @@ namespace FileService.Helpers
                     <th align=""left"">Price</th>
                 </tr>
                 {item}
+                 <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Total:</td>
+                    <td><strong>{total}</strong></td>
+                </tr>
             </table>";
 
         private static string ItemTemplate => @"  
@@ -55,7 +61,7 @@ namespace FileService.Helpers
             var body = BodyTemplate.Replace("{orderNr}", rentals.First().OrderId.ToString())
                 .Replace("{name}", $"{user.Name} {user.Surname}")
                 .Replace("{createdOn}", rentals.First().ActiveFrom.ToString(CultureInfo.InvariantCulture))
-                .Replace("{item}", rentItems);
+                .Replace("{item}", rentItems).Replace("{total}", rentals.Sum(x => x.Price).ToString(CultureInfo.InvariantCulture));
 
             return CreatePdf(body);
         }
