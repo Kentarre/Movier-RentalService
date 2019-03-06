@@ -36,7 +36,7 @@ namespace FileService.Handlers
             });
         }
 
-        public class State
+        private class State
         {
             public bool HasRentals { get; set; }
             public bool HasInvoiceAlready { get; set; }

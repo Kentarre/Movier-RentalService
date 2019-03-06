@@ -16,11 +16,9 @@ namespace CalculationService.Handlers
         {
             if (!(mqMessage.Body is CalculatePriceCommand message)) return;
 
-            var rentals = rProxy.GetAll<Rent>();
-            var activeRental =
-                rentals.Where(x => x.FilmId == message.FilmId && x.UserId == message.UserId && x.IsRented);
+            var state = State.GetState(rProxy, message.FilmId, message.UserId);
 
-            if (activeRental.Any())
+            if (state.RentAlreadyActive)
                 return;
 
             var user = GetUser(message.UserId);
@@ -31,6 +29,21 @@ namespace CalculationService.Handlers
 
             SetRental(message, price);
             SetBonuses(user, message.Type, message.UseBonuses, daysCanBeDiscounted);
+        }
+
+        private class State
+        {
+            public bool RentAlreadyActive { get; set;  }
+
+            public static State GetState(RedisProxy rProxy, Guid filmId, Guid userId)
+            {
+                var rentals = rProxy.GetAll<Rent>();
+
+                return new State
+                {
+                    RentAlreadyActive = rentals.Where(x => x.FilmId == filmId && x.UserId == userId && x.IsRented).Any()
+                };
+            }
         }
 
         private void SetRental(CalculatePriceCommand message, decimal price)
