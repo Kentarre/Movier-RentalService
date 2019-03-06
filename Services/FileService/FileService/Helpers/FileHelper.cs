@@ -15,6 +15,7 @@ namespace FileService.Helpers
     {
         private static RedisProxy rProxy => Redis.Get();
 
+        #region template
         private static string BodyTemplate => @"
         <h1>Order nr {orderNr}, {name}</h1>
         <p>Created on {createdOn}</p>
@@ -44,6 +45,7 @@ namespace FileService.Helpers
             <td>{period}</td>
             <td>{price}</td>
         </tr>";
+        #endregion
 
         public static byte[] CreateInvoice(User user, List<Rent> rentals)
         {

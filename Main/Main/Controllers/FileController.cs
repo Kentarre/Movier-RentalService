@@ -41,7 +41,6 @@ namespace Main.Controllers
             });
         }
 
-        [HttpGet("download/{invoiceId}")]
         public FileResult Download(Guid invoiceId)
         {
             var invoice = rProxy.Get<Invoice>(invoiceId);

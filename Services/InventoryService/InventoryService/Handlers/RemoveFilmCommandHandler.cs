@@ -10,8 +10,9 @@ namespace InventoryService.Handlers
     {
         public override void HandleThisMessage(IMessage mqMessage, IMessageQueueClient client)
         {
-            if (mqMessage.Body is RemoveFilmCommand m)
-                InfraHelper.RemoveFilm(m.FilmId);
+            if (!(mqMessage.Body is RemoveFilmCommand m)) return;
+
+            InfraHelper.RemoveFilm(m.FilmId);
         }
     }
 }
