@@ -1,9 +1,0 @@
-/Users/Kentarre/dev/Movier/Common/Common/Common/bin/Debug/netcoreapp2.1/Common.deps.json
-/Users/Kentarre/dev/Movier/Common/Common/Common/bin/Debug/netcoreapp2.1/Common.dll
-/Users/Kentarre/dev/Movier/Common/Common/Common/bin/Debug/netcoreapp2.1/Common.pdb
-/Users/Kentarre/dev/Movier/Common/Common/Common/obj/Debug/netcoreapp2.1/Common.csprojResolveAssemblyReference.cache
-/Users/Kentarre/dev/Movier/Common/Common/Common/obj/Debug/netcoreapp2.1/Common.csproj.CoreCompileInputs.cache
-/Users/Kentarre/dev/Movier/Common/Common/Common/obj/Debug/netcoreapp2.1/Common.AssemblyInfoInputs.cache
-/Users/Kentarre/dev/Movier/Common/Common/Common/obj/Debug/netcoreapp2.1/Common.AssemblyInfo.cs
-/Users/Kentarre/dev/Movier/Common/Common/Common/obj/Debug/netcoreapp2.1/Common.dll
-/Users/Kentarre/dev/Movier/Common/Common/Common/obj/Debug/netcoreapp2.1/Common.pdb
