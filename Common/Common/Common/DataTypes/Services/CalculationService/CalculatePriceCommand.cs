@@ -9,9 +9,8 @@ namespace Common.DataTypes.Services.CalculationService
         public Guid FilmId { get; set; }
         public DateTime ActiveFrom { get; set; }
         public DateTime ActiveTo { get; set; }
-        public int BonusPoints { get; set; }
-        public FilmType Type { get; set; }
         public bool UseBonuses { get; set; }
+        public FilmType Type { get; set; }
         public int OrderId { get; set; }
     }
 

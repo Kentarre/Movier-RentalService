@@ -1,4 +1,5 @@
 ﻿using System;
+using Common.DataTypes.Services.FileService;
 using Common.DataTypes.Services.RentalService;
 using Main.ResponseHost.Handlers;
 using ServiceStack.Messaging.Redis;

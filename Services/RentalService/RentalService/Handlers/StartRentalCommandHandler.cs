@@ -22,8 +22,6 @@ namespace RentalService.Handlers
             if (!film.IsAvailable)
                 return;
 
-            var user = InfraHelper.GetUser(m.UserId);
-
             client.Publish(new CalculatePriceCommand
             {
                 UserId = m.UserId,
@@ -32,7 +30,6 @@ namespace RentalService.Handlers
                 UseBonuses = m.UseBonuses,
                 ActiveTo = m.ActiveTo,
                 ActiveFrom = m.ActiveFrom,
-                BonusPoints = user.AvailableBonus,
                 OrderId = m.OrderId
             });
 

@@ -5,14 +5,14 @@ namespace CalculationService.Helpers
 {
     public static class Calculation
     {
-        public static decimal GetPrice(FilmType type, int durationDays, int bonuses, bool useBonuses)
+        public static decimal GetPrice(FilmType type, int durationDays, int daysDiscounted, bool useBonuses)
         {
             int tempDays;
 
             if (durationDays == 0)
                 throw new Exception();
 
-            durationDays = useBonuses ? durationDays - GetDiscountedDays(bonuses) : durationDays;
+            durationDays = useBonuses ? durationDays - daysDiscounted : durationDays;
 
             switch (type)
             {
@@ -33,10 +33,6 @@ namespace CalculationService.Helpers
             }
         }
 
-        private static int GetDiscountedDays(int bonuses)
-        {
-            return bonuses / 25;
-        }
 
         public static int CreateNewBonus(FilmType type)
         {

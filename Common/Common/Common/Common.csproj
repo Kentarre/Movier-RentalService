@@ -8,11 +8,9 @@
     <Compile Remove="Class1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataTypes\" />
     <Folder Include="DataTypes\Services\" />
     <Folder Include="DataTypes\Services\RentalService\" />
     <Folder Include="DataTypes\Services\FileService\" />
-    <Folder Include="DataTypes\Dto\" />
     <Folder Include="DataTypes\Enums\" />
     <Folder Include="Redis\" />
     <Folder Include="DataTypes\Services\CalculationService\" />

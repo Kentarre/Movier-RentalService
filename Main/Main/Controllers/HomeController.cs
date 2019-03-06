@@ -24,7 +24,7 @@ namespace Main.Controllers
         [HttpGet("getrentals/{userId}")]
         public ActionResult GetRentals(Guid userId)
         {
-            var allRentals = rProxy.GetAll<Rent>().ToList();
+            var allRentals = rProxy.GetAll<Rent>();
             var userRentals = allRentals.Where(x => x.UserId == userId);
             var films = userRentals.Select(x => rProxy.Get<Film>(x.FilmId));
 

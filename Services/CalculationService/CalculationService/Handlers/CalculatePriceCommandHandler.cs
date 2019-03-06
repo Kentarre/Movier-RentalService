@@ -17,15 +17,20 @@ namespace CalculationService.Handlers
             if (!(mqMessage.Body is CalculatePriceCommand message)) return;
 
             var rentals = rProxy.GetAll<Rent>();
-            var activeRental = rentals.Where(x => x.FilmId == message.FilmId && x.UserId == message.UserId && x.IsRented);
+            var activeRental =
+                rentals.Where(x => x.FilmId == message.FilmId && x.UserId == message.UserId && x.IsRented);
 
             if (activeRental.Any())
                 return;
 
-            var price = Calculation.GetPrice(message.Type, (message.ActiveTo - message.ActiveFrom).Days, message.BonusPoints, message.UseBonuses);
+            var user = GetUser(message.UserId);
+            var daysCanBeDiscounted = GetDaysDiscounted(user);
+
+            var price = Calculation.GetPrice(message.Type, (message.ActiveTo - message.ActiveFrom).Days,
+                daysCanBeDiscounted, message.UseBonuses);
 
             SetRental(message, price);
-            SetBonuses(message.UserId, message.Type);
+            SetBonuses(user, message.Type, message.UseBonuses, daysCanBeDiscounted);
         }
 
         private void SetRental(CalculatePriceCommand message, decimal price)
@@ -54,12 +59,19 @@ namespace CalculationService.Handlers
             return user.First();
         }
 
-        private void SetBonuses(Guid userId, FilmType type)
+        private void SetBonuses(User user, FilmType type, bool paidWithBonuses, int discountedDays)
         {
-            var user = GetUser(userId);
+            if (paidWithBonuses)
+                user.AvailableBonus -= discountedDays * 25;
+
             user.AvailableBonus += Calculation.CreateNewBonus(type);
 
             rProxy.Set<User>(user);
+        }
+
+        private int GetDaysDiscounted(User user)
+        {
+            return user.AvailableBonus / 25;
         }
     }
 }
