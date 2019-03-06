@@ -12,7 +12,7 @@ namespace CalculationService.Helpers
             if (durationDays == 0)
                 throw new Exception();
 
-            durationDays = useBonuses == true ? durationDays - GetDiscountedDays(bonuses) : durationDays;
+            durationDays = useBonuses ? durationDays - GetDiscountedDays(bonuses) : durationDays;
 
             switch (type)
             {

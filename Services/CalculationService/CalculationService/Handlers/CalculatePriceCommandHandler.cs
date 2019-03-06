@@ -14,7 +14,7 @@ namespace CalculationService.Handlers
     {
         public override void HandleThisMessage(IMessage mqMessage, IMessageQueueClient client)
         {
-            var message = mqMessage.Body as CalculatePriceCommand;
+            if (!(mqMessage.Body is CalculatePriceCommand message)) return;
 
             var rentals = rProxy.GetAll<Rent>();
             var activeRental = rentals.Where(x => x.FilmId == message.FilmId && x.UserId == message.UserId && x.IsRented);
@@ -46,9 +46,9 @@ namespace CalculationService.Handlers
 
         private User GetUser(Guid id)
         {
-            var user = rProxy.GetAll<User>().Where(x => x.Id == id);
+            var user = rProxy.GetAll<User>().Where(x => x.Id == id).ToList();
 
-            if (user.Count() != 1)
+            if (user.Count != 1)
                 throw new Exception();
 
             return user.First();

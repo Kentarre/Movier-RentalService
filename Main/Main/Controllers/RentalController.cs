@@ -37,8 +37,14 @@ namespace Main.Controllers
         }
 
         [HttpPost("stop")]
-        public ActionResult StopRental()
+        public ActionResult StopRental(List<Guid> rentIdList)
         {
+            foreach (var item in rentIdList)
+                MessageAdapter.SendMessage(new StopRentalCommand
+                {
+                    RentId = item
+                });
+
             return Ok(new { status = "success" });
         }
     }

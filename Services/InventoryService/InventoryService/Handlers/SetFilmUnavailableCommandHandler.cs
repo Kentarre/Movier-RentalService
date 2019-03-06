@@ -10,7 +10,7 @@ namespace InventoryService.Handlers
     {
         public override void HandleThisMessage(IMessage mqMessage, IMessageQueueClient client)
         {
-            var m = mqMessage.Body as SetFilmUnavailableCommand;
+            if (!(mqMessage.Body is SetFilmUnavailableCommand m)) return;
 
             var film = InfraHelper.GetFilm(m.FilmId);
 

@@ -11,7 +11,7 @@ namespace RentalService.Handlers
     {
         public override void HandleThisMessage(IMessage mqMessage, IMessageQueueClient client)
         {
-            var m = mqMessage.Body as StopRentalCommand;
+            if (!(mqMessage.Body is StopRentalCommand m)) return;
 
             var rent = InfraHelper.GetRent(m.RentId);
 

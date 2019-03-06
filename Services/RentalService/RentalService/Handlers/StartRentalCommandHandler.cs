@@ -15,7 +15,7 @@ namespace RentalService.Handlers
     {
         public override void HandleThisMessage(IMessage mqMessage, IMessageQueueClient client)
         {
-            var m = mqMessage.Body as StartRentalCommand;
+            if (!(mqMessage.Body is StartRentalCommand m)) return;
 
             var film = InfraHelper.GetFilm(m.FilmId);
 
