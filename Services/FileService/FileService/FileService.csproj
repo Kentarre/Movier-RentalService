@@ -20,4 +20,17 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Fonts\SegoeUI.ttf" />
+    <None Remove="Fonts\Segoe UI Italic.ttf" />
+    <None Remove="Fonts\Segoe UI Bold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\SegoeUI.ttf" />
+    <EmbeddedResource Include="Fonts\Segoe UI Italic.ttf" />
+    <EmbeddedResource Include="Fonts\Segoe UI Bold.ttf" />
+  </ItemGroup>
 </Project>

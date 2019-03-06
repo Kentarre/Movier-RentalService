@@ -53,7 +53,7 @@ namespace Main.Controllers
 
             MessageAdapter.SendMessage(new StartRentalCommand
             {
-                UserId = new Guid("75f569d6-6ca9-44a4-9adc-b04f66e1e332"),
+                UserId = new Guid("fce02e91-faba-418b-9e1d-5865aa26456d"),
                 FilmId = filmId,
                 ActiveFrom = DateTime.Now,
                 ActiveTo = DateTime.Now.AddDays(7),
