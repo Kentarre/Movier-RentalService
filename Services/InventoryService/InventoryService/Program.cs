@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace InventoryService
 {
@@ -6,6 +7,8 @@ namespace InventoryService
     {
         static void Main(string[] args)
         {
+            Console.Title = Assembly.GetExecutingAssembly().GetName().Name;
+
             var serverAppHost = new InvenotryServiceHost();
             serverAppHost.Init();
             serverAppHost.Start("http://localhost:1402/");

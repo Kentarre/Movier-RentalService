@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using FileService.Helpers;
 using PdfSharpCore.Fonts;
 
@@ -8,6 +9,8 @@ namespace FileService
     {
         static void Main(string[] args)
         {
+            Console.Title = Assembly.GetExecutingAssembly().GetName().Name;
+
             var serverAppHost = new FileServiceHost();
             serverAppHost.Init();
             serverAppHost.Start("http://localhost:1404/");

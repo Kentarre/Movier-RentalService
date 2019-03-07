@@ -16,8 +16,11 @@ namespace Main.Controllers
     public class RentalController : ControllerBase
     {
         [HttpPost("start")]
-        public ActionResult StartRental([FromForm] List<NewOrderDto> rentedFilms)
+        public ActionResult StartRental([FromBody] List<NewOrderDto> rentedFilms)
         {
+            if (rentedFilms.Count == 0)
+                return Ok(new { status = "error", message = "No films selected" });
+
             var orderId = DbMethods.GetNextOrderId();
 
             foreach (var item in rentedFilms)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace RentalService
 {
@@ -6,6 +7,8 @@ namespace RentalService
     {
         static void Main(string[] args)
         {
+            Console.Title = Assembly.GetExecutingAssembly().GetName().Name;
+
             var serverAppHost = new RentalServiceHost();
             serverAppHost.Init();
             serverAppHost.Start("http://localhost:1401/");
