@@ -38,20 +38,20 @@ namespace FileService.Handlers
 
         private class State
         {
-            public bool HasRentals { get; set; }
-            public bool HasInvoiceAlready { get; set; }
-            public List<Rent> UserRentals { get; set; }
+            public bool HasRentals { get; private set; }
+            public bool HasInvoiceAlready { get; private set; }
+            public List<Rent> UserRentals { get; private set; }
 
             public static State GetState(RedisProxy rProxy, int orderId)
             {
-                var rentals = rProxy.GetAll<Rent>();
+                var rentals = rProxy.GetAll<Rent>().ToList();
                 var invoices = rProxy.GetAll<Invoice>();
 
                 return new State 
                 {
                     UserRentals = rentals.Where(x => x.OrderId == orderId).ToList(),
-                    HasRentals = rentals.Where(x => x.OrderId == orderId).Any(),
-                    HasInvoiceAlready = invoices.Where(x => x.OrderId == orderId).Any()
+                    HasRentals = rentals.Any(x => x.OrderId == orderId),
+                    HasInvoiceAlready = invoices.Any(x => x.OrderId == orderId)
                 };
             }
         }

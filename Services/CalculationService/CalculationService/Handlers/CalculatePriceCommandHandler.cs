@@ -33,15 +33,15 @@ namespace CalculationService.Handlers
 
         private class State
         {
-            public bool RentAlreadyActive { get; set;  }
+            public bool RentAlreadyActive { get; private set;  }
 
-            public static State GetState(RedisProxy rProxy, Guid filmId, Guid userId)
+            public static State GetState(IRedisProxy rProxy, Guid filmId, Guid userId)
             {
                 var rentals = rProxy.GetAll<Rent>();
 
                 return new State
                 {
-                    RentAlreadyActive = rentals.Where(x => x.FilmId == filmId && x.UserId == userId && x.IsRented).Any()
+                    RentAlreadyActive = rentals.Any(x => x.FilmId == filmId && x.UserId == userId && x.IsRented)
                 };
             }
         }

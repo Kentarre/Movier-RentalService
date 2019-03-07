@@ -57,7 +57,8 @@ namespace FileService.Helpers
 
                 rentItems += ItemTemplate.Replace("{title}", film.Title)
                     .Replace("{period}", $"{item.ActiveFrom} - {item.ActiveTo}")
-                    .Replace("{price}", $"{item.Price} Eur");
+                    .Replace("{price}", $"{item.Price} Eur")
+					.Replace("{nr}", (rentals.IndexOf(item) + 1).ToString());
             }
 
             var body = BodyTemplate.Replace("{orderNr}", rentals.First().OrderId.ToString())
