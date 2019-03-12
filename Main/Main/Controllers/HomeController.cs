@@ -16,7 +16,7 @@ namespace Main.Controllers
         [HttpGet("getfilms")]
         public ActionResult GetFilms()
         {
-            var films = rProxy.GetAll<Film>();
+            var films = rProxy.GetAll<Film>().Where(x => x.IsAvailable == true);
 
             return Ok(films);
         }
