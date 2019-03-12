@@ -31,8 +31,8 @@ namespace Migrator
                     ReleaseDate = new DateTime(1994, 10, 14),
                     Title = "The Shawshank Redemption",
                     Type = FilmType.Old,
-                    IsAvailable = true
-
+                    IsAvailable = true,
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et lacinia felis, non condimentum purus. Fusce in enim erat. Praesent est orci, interdum id libero quis, fringilla facilisis ex. "
                 },
                 new Film
                 {
@@ -40,8 +40,8 @@ namespace Migrator
                     ReleaseDate = new DateTime(1972, 03, 24),
                     Title = "The Godfather",
                     Type = FilmType.Old,
-                    IsAvailable = true
-
+                    IsAvailable = true,
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et lacinia felis, non condimentum purus. Fusce in enim erat. Praesent est orci, interdum id libero quis, fringilla facilisis ex. "
                 },
                 new Film
                 {
@@ -49,7 +49,8 @@ namespace Migrator
                     ReleaseDate = new DateTime(2008, 07, 18),
                     Title = "The Dark Knight",
                     Type = FilmType.Regular,
-                    IsAvailable = true
+                    IsAvailable = true,
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et lacinia felis, non condimentum purus. Fusce in enim erat. Praesent est orci, interdum id libero quis, fringilla facilisis ex. "
 
                 },
                 new Film
@@ -58,7 +59,9 @@ namespace Migrator
                     ReleaseDate = new DateTime(2003, 12, 17),
                     Title = "The Lord of the Rings: The Return of the King",
                     Type = FilmType.Regular,
-                    IsAvailable = true
+                    IsAvailable = true,
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et lacinia felis, non condimentum purus. Fusce in enim erat. Praesent est orci, interdum id libero quis, fringilla facilisis ex. "
+
 
                 },
                 new Film
@@ -67,7 +70,9 @@ namespace Migrator
                     ReleaseDate = new DateTime(1999, 10, 15),
                     Title = "Fight Club",
                     Type = FilmType.Old,
-                    IsAvailable = true
+                    IsAvailable = true,
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et lacinia felis, non condimentum purus. Fusce in enim erat. Praesent est orci, interdum id libero quis, fringilla facilisis ex. "
+
 
                 },
                 new Film
@@ -76,7 +81,9 @@ namespace Migrator
                     ReleaseDate = new DateTime(2018, 2, 16),
                     Title = "Black Panther",
                     Type = FilmType.NewRelease,
-                    IsAvailable = true
+                    IsAvailable = true,
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et lacinia felis, non condimentum purus. Fusce in enim erat. Praesent est orci, interdum id libero quis, fringilla facilisis ex. "
+
 
                 },
                 new Film
@@ -85,7 +92,9 @@ namespace Migrator
                     ReleaseDate = new DateTime(2018, 3, 16),
                     Title = "Tomb Raider",
                     Type = FilmType.NewRelease,
-                    IsAvailable = true
+                    IsAvailable = true,
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et lacinia felis, non condimentum purus. Fusce in enim erat. Praesent est orci, interdum id libero quis, fringilla facilisis ex. "
+
 
                 },
                 new Film
@@ -94,7 +103,9 @@ namespace Migrator
                     ReleaseDate = new DateTime(2018, 3, 23),
                     Title = "Pacific Rim: Uprising",
                     Type = FilmType.NewRelease,
-                    IsAvailable = true
+                    IsAvailable = true,
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et lacinia felis, non condimentum purus. Fusce in enim erat. Praesent est orci, interdum id libero quis, fringilla facilisis ex. "
+
 
                 },
                 new Film
@@ -103,7 +114,9 @@ namespace Migrator
                     ReleaseDate = new DateTime(2018, 4, 27),
                     Title = "Avengers: Infinity War",
                     Type = FilmType.NewRelease,
-                    IsAvailable = true
+                    IsAvailable = true,
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et lacinia felis, non condimentum purus. Fusce in enim erat. Praesent est orci, interdum id libero quis, fringilla facilisis ex. "
+
 
                 },
                 new Film
@@ -112,7 +125,9 @@ namespace Migrator
                     ReleaseDate = new DateTime(2018, 5, 18),
                     Title = "Deadpool 2 ",
                     Type = FilmType.NewRelease,
-                    IsAvailable = true
+                    IsAvailable = true,
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et lacinia felis, non condimentum purus. Fusce in enim erat. Praesent est orci, interdum id libero quis, fringilla facilisis ex. "
+
                 },
 
                 #endregion

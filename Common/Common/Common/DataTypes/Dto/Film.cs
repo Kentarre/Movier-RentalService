@@ -11,5 +11,7 @@ namespace Common.DataTypes.Dto
         public DateTime ReleaseDate { get; set; }
         public FilmType Type { get; set; }
         public bool IsAvailable { get; set; }
+        public string ImgUrl { get; set; }
+        public string Description { get; set; }
     }
 }
