@@ -22,7 +22,7 @@ class List extends Component {
     }
 
     async getFilms() {
-        fetch("https://localhost:44358/api/home/getfilms")
+        fetch("https://localhost:5001/api/home/getfilms")
             .then(res => res.json())
             .then((result) => {
                 this.setState({

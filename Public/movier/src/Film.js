@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
+import { AppContext } from './AppContext.js';
 
 class Film extends Component {
+    constructor(props){
+        super(props)
+
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(context, a){
+        context.selectedFilms.push(a);
+        context.getLength();
+    }
+
     render() {
         return (
             <>
@@ -19,7 +31,9 @@ class Film extends Component {
                                     <h5 className="card-title" data-release-type={f.type}>{f.title}</h5>
                                     <p className="card-text">{f.description}</p>
                                     <div className="d-flex justify-content-between align-items-center">
-                                        <button type="button" className="btn btn-sm btn-outline-success" onClick={() => this.props.onClick(filmObj)}>Add to cart</button>
+                                        <AppContext.Consumer>
+                                            {(context) => (<button type="button" className="btn btn-sm btn-outline-success" onClick={() => this.handleClick(context, filmObj)}>Add to cart</button>)}
+                                        </AppContext.Consumer>
                                         <small className="text-muted">{new Date(f.releaseDate).toLocaleDateString()}</small>
                                     </div>
                                 </div>

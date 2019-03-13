@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import Checkout from './Checkout.js';
+import Cart from './Cart.js';
 
 class Nav extends Component {
   constructor(){
@@ -43,7 +43,7 @@ class Nav extends Component {
               <Link className="nav-link" to="/orders">Orders</Link>
             </li>
           </ul>
-          <Checkout></Checkout>
+          <Cart></Cart>
         </div>
       </nav>);
   }
