@@ -2,17 +2,6 @@ import React, { Component } from 'react';
 import { AppContext } from './AppContext.js';
 
 class Film extends Component {
-    constructor(props){
-        super(props)
-
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick(context, a){
-        context.selectedFilms.push(a);
-        context.getLength();
-    }
-
     render() {
         return (
             <>
@@ -32,7 +21,7 @@ class Film extends Component {
                                     <p className="card-text">{f.description}</p>
                                     <div className="d-flex justify-content-between align-items-center">
                                         <AppContext.Consumer>
-                                            {(context) => (<button type="button" className="btn btn-sm btn-outline-success" onClick={() => this.handleClick(context, filmObj)}>Add to cart</button>)}
+                                            {(context) => (<button type="button" className="btn btn-sm btn-outline-success" onClick={() => context.setFilms(filmObj)}>Add to cart</button>)}
                                         </AppContext.Consumer>
                                         <small className="text-muted">{new Date(f.releaseDate).toLocaleDateString()}</small>
                                     </div>

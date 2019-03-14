@@ -7,7 +7,7 @@ class Cart extends Component{
         return (
             <div className="form-inline mt-2 mt-md-0">
                 <AppContext.Consumer>
-                    {(context) => (<Link className="btn btn-outline-success my-2 my-sm-0" to="/checkout">Checkout <span className="badge badge-success">{context.length}</span> </Link>)}    
+                    {(context) => (<Link className="btn btn-outline-success my-2 my-sm-0" to="/checkout">Checkout <span className="badge badge-success">{context.selectedFilms.length}</span> </Link>)}    
                 </AppContext.Consumer>
             </div>);
     }

@@ -7,13 +7,12 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-
     this.state = {
       selectedFilms: [],
-      length: 0,
-      getLength: () => {
+      setFilms: (a) => {
+        this.state.selectedFilms.push(a)
         this.setState({
-          length: this.state.selectedFilms.length
+          selectedFilms: this.state.selectedFilms
         })
       }
     }
