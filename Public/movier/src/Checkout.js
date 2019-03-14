@@ -28,6 +28,13 @@ function getDaysDiscounted(availableBonus) {
     return Math.floor(availableBonus / 25);
 }
 
+function getDaysDiff(today, tommorow){
+    var timeDiff = Math.abs(tommorow.getTime() - today.getTime());
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+
+    return diffDays;
+}
+
 class Checkout extends Component {
     constructor(props) {
         super(props)
@@ -59,12 +66,17 @@ class Checkout extends Component {
 
     setPeriod(id, type) {
         let user = this.state.user;
-        var price = calculatePrice(type, 7, user[0].availableBonus, true);
+        var rentFrom = new Date();
+        var rentTo = new Date('2019','02','29');
+        var price = calculatePrice(type, getDaysDiff(rentFrom, rentTo), user[0].availableBonus, true);
         
         this.state.checkOutModel[id] = {
-            id: id,
+            filmId: id,
             price: price,
-            useBonuses: true
+            useBonuses: true,
+            rentFrom: rentFrom,
+            rentTo: rentTo,
+            userId: user[0].id
         }
 
         this.getTotal();
