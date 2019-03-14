@@ -30,5 +30,13 @@ namespace Main.Controllers
 
             return Ok(films);
         }
+
+        [HttpGet("getuser/{userId}")]
+        public ActionResult GetUser(Guid userId)
+        {
+            var user = rProxy.GetAll<User>().Where(x => x.Id == userId);
+
+            return Ok(user);
+        }
     }
 }

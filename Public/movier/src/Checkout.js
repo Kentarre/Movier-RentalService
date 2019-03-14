@@ -1,23 +1,86 @@
 import React, { Component } from 'react';
 import { AppContext } from './AppContext.js'
 
+function calculatePrice(type, durationDays, availableBonus, useBonuses) {
+    var tempDays;
+
+    durationDays = useBonuses ? durationDays - getDaysDiscounted(availableBonus) : durationDays;
+
+    switch (type) {
+        case 0:
+            return parseFloat(40 * durationDays).toFixed(2);
+        case 1:
+            if (durationDays <= 3)
+                return 30;
+
+            tempDays = durationDays - 3;
+            return  parseFloat((tempDays * 30) + 30).toFixed(2);
+        default:
+            if (durationDays <= 5)
+                return 30;
+
+            tempDays = durationDays - 5;
+            return parseFloat((tempDays * 30) + 30).toFixed(2);
+    }
+}
+
+function getDaysDiscounted(availableBonus) {
+    return Math.floor(availableBonus / 25);
+}
+
 class Checkout extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
 
         this.state = {
-            checkOutModel: []
+            checkOutModel: [],
+            user: null,
+            total: 0
         }
 
         this.setPeriod = this.setPeriod.bind(this);
+        this.getUser = this.getUser.bind(this);
+        this.getTotal = this.getTotal.bind(this);
     }
 
-    setPeriod(id, type){
+    componentDidMount() {
+        this.getUser('abfefc7a-66aa-4b9e-91a4-9e968b912229');
+    }
+
+    getUser(id) {
+        fetch("https://localhost:44358/api/home/getuser/" + id)
+            .then(res => res.json())
+            .then((result) => {
+                this.setState({
+                    user: result
+                });
+            })
+    }
+
+    setPeriod(id, type) {
+        let user = this.state.user;
+        var price = calculatePrice(type, 7, user[0].availableBonus, true);
+        
         this.state.checkOutModel[id] = {
             id: id,
-            price: 23,
+            price: price,
             useBonuses: true
         }
+
+        this.getTotal();
+    }
+
+    getTotal(){
+        var total = Number(0);
+        var array = this.state.checkOutModel;
+
+        Object.keys(array).map(x => {
+            var obj = array[x];
+
+            total += Number(obj.price);
+        });
+
+        this.setState({total: total});
     }
 
     render() {
@@ -46,7 +109,7 @@ class Checkout extends Component {
                                     </AppContext.Consumer>
                                     <li class="list-group-item d-flex justify-content-between">
                                         <span>Total (USD)</span>
-                                        <strong>20€</strong>
+                                        <strong>{parseFloat(this.state.total).toFixed(2)}€</strong>
                                     </li>
                                 </ul>
                             </div>
@@ -103,7 +166,7 @@ class Checkout extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <hr/>
+                                    <hr />
                                     <button class="btn btn-primary btn-lg btn-block" type="submit">Checkout</button>
                                 </form>
                             </div>

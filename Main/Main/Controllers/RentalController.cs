@@ -48,23 +48,5 @@ namespace Main.Controllers
 
             return Ok(new { status = "success" });
         }
-
-        [HttpPost("start/{filmId}")]
-        public ActionResult StartRental(Guid filmId)
-        {
-            var orderId = DbMethods.GetNextOrderId();
-
-            MessageAdapter.SendMessage(new StartRentalCommand
-            {
-                UserId = new Guid("fce02e91-faba-418b-9e1d-5865aa26456d"),
-                FilmId = filmId,
-                ActiveFrom = DateTime.Now,
-                ActiveTo = DateTime.Now.AddDays(7),
-                UseBonuses = true,
-                OrderId = orderId
-            });
-
-            return Ok(new { status = "success" });
-        }
     }
 }
