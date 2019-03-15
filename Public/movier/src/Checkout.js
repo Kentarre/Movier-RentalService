@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
 import { AppContext } from './AppContext.js'
+import Datepicker from './Datepicker.js'
+import CheckoutButton from './CheckoutButton.js'
 
 function calculatePrice(type, durationDays, availableBonus, useBonuses) {
     var tempDays;
 
     durationDays = useBonuses ? durationDays - getDaysDiscounted(availableBonus) : durationDays;
 
+    if (durationDays < 1)
+        return parseFloat(0).toFixed(2);
+
     switch (type) {
         case 0:
             return parseFloat(40 * durationDays).toFixed(2);
         case 1:
             if (durationDays <= 3)
-                return 30;
+                return parseFloat(30).toFixed(2);
 
             tempDays = durationDays - 3;
-            return  parseFloat((tempDays * 30) + 30).toFixed(2);
+            return parseFloat((tempDays * 30) + 30).toFixed(2);
         default:
             if (durationDays <= 5)
-                return 30;
+                return parseFloat(30).toFixed(2);
 
             tempDays = durationDays - 5;
             return parseFloat((tempDays * 30) + 30).toFixed(2);
@@ -28,9 +33,9 @@ function getDaysDiscounted(availableBonus) {
     return Math.floor(availableBonus / 25);
 }
 
-function getDaysDiff(today, tommorow){
-    var timeDiff = Math.abs(tommorow.getTime() - today.getTime());
-    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+function getDaysDiff(today, tommorow) {
+    var timeDiff = tommorow.getTime() - today.getTime();
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
     return diffDays;
 }
@@ -42,12 +47,14 @@ class Checkout extends Component {
         this.state = {
             checkOutModel: [],
             user: null,
-            total: 0
+            total: 0,
+            dateTo: null
         }
 
         this.setPeriod = this.setPeriod.bind(this);
         this.getUser = this.getUser.bind(this);
         this.getTotal = this.getTotal.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
@@ -64,12 +71,16 @@ class Checkout extends Component {
             })
     }
 
-    setPeriod(id, type) {
+    setPeriod(id, type, rentTo) {
         let user = this.state.user;
         var rentFrom = new Date();
-        var rentTo = new Date('2019','02','29');
-        var price = calculatePrice(type, getDaysDiff(rentFrom, rentTo), user[0].availableBonus, true);
-        
+        var daysDiff = getDaysDiff(rentFrom, rentTo);
+    
+        if (daysDiff < 0)
+            return;
+
+        var price = calculatePrice(type, daysDiff, user[0].availableBonus, true);
+
         this.state.checkOutModel[id] = {
             filmId: id,
             price: price,
@@ -82,7 +93,7 @@ class Checkout extends Component {
         this.getTotal();
     }
 
-    getTotal(){
+    getTotal() {
         var total = Number(0);
         var array = this.state.checkOutModel;
 
@@ -92,7 +103,11 @@ class Checkout extends Component {
             total += Number(obj.price);
         });
 
-        this.setState({total: total});
+        this.setState({ total: total });
+    }
+
+    handleChange(id, type, dateTo) {
+        this.setPeriod(id, type, dateTo); 
     }
 
     render() {
@@ -112,7 +127,7 @@ class Checkout extends Component {
                                                 <li class="list-group-item d-flex justify-content-between lh-condensed" data-id={f.id}>
                                                     <div>
                                                         <h6 class="my-0">{f.title}</h6>
-                                                        <a href="#" onClick={() => this.setPeriod(f.id, f.type)}><small class="text-muted">Choose period</small></a>
+                                                        <Datepicker onChange={(dateTo) => {this.handleChange(f.id, f.type, dateTo); }}/>
                                                     </div>
                                                     <span class="text-muted">{typeof this.state.checkOutModel[f.id] === 'undefined' ? '' : this.state.checkOutModel[f.id].price + '€'}</span>
                                                 </li>
@@ -120,7 +135,7 @@ class Checkout extends Component {
                                         }))}
                                     </AppContext.Consumer>
                                     <li class="list-group-item d-flex justify-content-between">
-                                        <span>Total (USD)</span>
+                                        <span>Total: </span>
                                         <strong>{parseFloat(this.state.total).toFixed(2)}€</strong>
                                     </li>
                                 </ul>
@@ -179,7 +194,7 @@ class Checkout extends Component {
                                         </div>
                                     </div>
                                     <hr />
-                                    <button class="btn btn-primary btn-lg btn-block" type="submit">Checkout</button>
+                                    <CheckoutButton checkOutModel={this.state.checkOutModel}/>
                                 </form>
                             </div>
                         </div>

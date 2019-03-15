@@ -9,7 +9,6 @@
     <Folder Include="RedisMQ\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Dto\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -28,8 +28,8 @@ namespace Main.Controllers
                 {
                     UserId = item.UserId,
                     FilmId = item.FilmId,
-                    ActiveFrom = item.RentFrom,
-                    ActiveTo = item.RentTo,
+                    ActiveFrom = item.RentFrom.ToLocalTime(),
+                    ActiveTo = item.RentTo.AddDays(1).ToLocalTime(),
                     UseBonuses = item.UseBonuses,
                     OrderId = orderId
                 });

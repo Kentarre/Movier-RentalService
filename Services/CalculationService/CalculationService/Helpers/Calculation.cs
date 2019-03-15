@@ -14,6 +14,9 @@ namespace CalculationService.Helpers
 
             durationDays = useBonuses ? durationDays - daysDiscounted : durationDays;
 
+            if (durationDays < 1)
+                return 0;
+
             switch (type)
             {
                 case FilmType.NewRelease:
