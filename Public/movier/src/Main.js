@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Home from './Home.js';
 import List from './List.js';
 import Checkout from './Checkout.js';
+import Orders from './Orders.js';
 
 class Main extends Component {
     render() {
@@ -10,6 +11,7 @@ class Main extends Component {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/films" component={List} />
+                <Route path="/orders" component={Orders} />
                 <Route path="/checkout" component={Checkout} />
             </Switch>
         );

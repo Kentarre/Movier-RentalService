@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using Common.DataTypes.Dto;
+﻿using Common.DataTypes.Dto;
 using Common.DataTypes.Services.FileService;
 using Common.Redis;
 using Main.RedisMQ;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
 
 namespace Main.Controllers
 {

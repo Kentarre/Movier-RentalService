@@ -24,7 +24,7 @@ namespace CalculationService.Handlers
             var user = GetUser(message.UserId);
             var daysCanBeDiscounted = GetDaysDiscounted(user);
 
-            var price = Calculation.GetPrice(message.Type, (message.ActiveTo.AddDays(1) - message.ActiveFrom).Days,
+            var price = Calculation.GetPrice(message.Type, (message.ActiveTo - message.ActiveFrom).Days,
                 daysCanBeDiscounted, message.UseBonuses);
 
             SetRental(message, price);

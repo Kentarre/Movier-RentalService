@@ -22,6 +22,6 @@ class AddButton extends Component {
                 {(context) => (<button type="button" className="btn btn-sm btn-outline-success" onClick={() => { context.setFilms(this.props.film); this.handleClick() }} disabled={this.state.disabled}>Add to cart</button>)}
             </AppContext.Consumer>)
     }
-}
+} 
 
 export default AddButton

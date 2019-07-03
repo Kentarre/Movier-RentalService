@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Common.DataTypes.Dto;
-using Common.DataTypes.Services.RentalService;
-using Common.Redis;
+﻿using Common.DataTypes.Services.RentalService;
 using Main.Dto;
 using Main.Helpers;
 using Main.RedisMQ;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 namespace Main.Controllers
 {
@@ -37,14 +34,13 @@ namespace Main.Controllers
             return Ok(new { status = "success" });
         }
 
-        [HttpPost("stop")]
-        public ActionResult StopRental(List<Guid> rentIdList)
+        [HttpPost("stop/{rentId}")]
+        public ActionResult StopRental(Guid rentId)
         {
-            foreach (var item in rentIdList)
-                MessageAdapter.SendMessage(new StopRentalCommand
-                {
-                    RentId = item
-                });
+            MessageAdapter.SendMessage(new StopRentalCommand
+            {
+                RentId = rentId
+            });
 
             return Ok(new { status = "success" });
         }

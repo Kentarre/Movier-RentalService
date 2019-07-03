@@ -22,7 +22,7 @@ class List extends Component {
     }
 
     async getFilms() {
-        fetch("https://localhost:5001/api/home/getfilms")
+        fetch("https://localhost:44358/api/home/getfilms")
             .then(res => res.json())
             .then((result) => {
                 this.setState({
@@ -65,7 +65,9 @@ class List extends Component {
                     <div className="jumbotron">
                         <h1>Films list:</h1>
                         <div className="row">
-                            Loading
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
                         </div>
                     </div>
                 </main>

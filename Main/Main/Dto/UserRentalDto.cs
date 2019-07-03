@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Common.DataTypes.Dto;
+﻿using Common.DataTypes.Dto;
 
 namespace Main.Dto
 {
@@ -11,5 +7,7 @@ namespace Main.Dto
         public new bool IsRented { get; set; }
         public new bool IsDue { get; set; }
         public string Title { get; set; }
+
+        public string Description { get; set; }
     }
 }
