@@ -10,9 +10,8 @@ class App extends Component {
     this.state = {
       selectedFilms: [],
       setFilms: (a) => {
-        this.state.selectedFilms.push(a)
         this.setState({
-          selectedFilms: this.state.selectedFilms
+          selectedFilms: a
         })
       }
     }

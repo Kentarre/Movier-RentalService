@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { AppContext } from './AppContext.js'
 import Datepicker from './Datepicker.js'
 import CheckoutButton from './CheckoutButton.js'
+import RemoveItemButton from './RemoveItemButton.js'
 
 function calculatePrice(type, durationDays, availableBonus, useBonuses) {
     var tempDays;
@@ -55,6 +56,7 @@ class Checkout extends Component {
         this.getUser = this.getUser.bind(this);
         this.getTotal = this.getTotal.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.removeItem = this.removeItem.bind(this);
     }
 
     componentDidMount() {
@@ -110,6 +112,21 @@ class Checkout extends Component {
         this.setPeriod(id, type, dateTo); 
     }
 
+    removeItem(context, id){
+        var filmsArray = context.selectedFilms;
+        var i = filmsArray.findIndex(f => f.id === id)
+
+        filmsArray.splice(i, 1);
+
+        var checkout = this.state.checkOutModel;
+        delete checkout[id];
+
+        this.setState({checkOutModel: checkout});
+        this.getTotal();
+                
+        context.setFilms(filmsArray);
+    }
+
     render() {
         return (
             <div>
@@ -128,8 +145,9 @@ class Checkout extends Component {
                                                     <div>
                                                         <h6 class="my-0">{f.title}</h6>
                                                         <Datepicker onChange={(dateTo) => {this.handleChange(f.id, f.type, dateTo); }}/>
+                                                        <small className="text-muted">{typeof this.state.checkOutModel[f.id] === 'undefined' ? '' : ' - ' + this.state.checkOutModel[f.id].price + '€'}</small>
                                                     </div>
-                                                    <span class="text-muted">{typeof this.state.checkOutModel[f.id] === 'undefined' ? '' : this.state.checkOutModel[f.id].price + '€'}</span>
+                                                    <RemoveItemButton handleClick={() => this.removeItem(context, f.id)}/>
                                                 </li>
                                             )
                                         }))}
@@ -143,23 +161,6 @@ class Checkout extends Component {
                             <div class="col-md-8 order-md-1">
                                 <h4 class="mb-3">Billing address</h4>
                                 <form class="needs-validation" novalidate="">
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="firstName">First name</label>
-                                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="" />
-                                            <div class="invalid-feedback">
-                                                Valid first name is required.
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="lastName">Last name</label>
-                                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="" />
-                                            <div class="invalid-feedback">
-                                                Valid last name is required.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr />
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <label for="cc-name">Name on card</label>
